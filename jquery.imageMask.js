@@ -59,6 +59,7 @@
     return $("<canvas>").attr({
         'id': id,
         'class': img.attr("class"),
+        'style': img.attr("style"),
         'width': $maskObj.width,
         'height': $maskObj.height
        }).insertAfter(img);
