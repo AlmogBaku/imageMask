@@ -10,44 +10,52 @@
 (function($) {
   var $_count_id  = 0;
   var $canvasObj  = null;
-  var $maskObj    = null;
   var $maskData   = null;
   
   $.fn.imageMask = function(_mask) {
     if(_mask==undefined) return false;
     if(!this.is("img"))  return false;
     
-    //create mask object if not created yet
-    if($maskObj==null) {
-      if(_mask.src) $maskObj=_mask;
-      else {
-        $maskObj = new Image();
-        $maskObj.src = _mask;
-      }
+    //create mask object
+    var maskObj;
+    if(_mask.src) maskObj=_mask;
+    else {
+      maskObj = new Image();
+      maskObj.src = _mask;
     }
     
-    this.each(function() {
-      //Create canvas
-      $canvasObj = createCanvas($(this))[0];
-      var ctx = $canvasObj.getContext("2d");
-
-      if($maskData==null) get_maskData(ctx); //get mask data if not exsits
+    var obj=this;
+    $(maskObj).load(function() {
+      obj.each(function() {
+        //Create canvas
+        $canvasObj = createCanvas(this, maskObj)[0];
+        var ctx = $canvasObj.getContext("2d");
+        
+        if($maskData==null) get_maskData(ctx, maskObj); //get mask data if not exsits
+        
+        //reRender image
+        var img = new Image();
+        img.src = $(this).attr('src');
+        drawImg(ctx, img);
+        
+        //Applying mask
+        applyMask(ctx);
+        
+        $canvasObj = null;
+        ctx=null;
+      });
       
-      drawImg(ctx, $(this)[0]);
-      applyMask(ctx);
-      
-      $(this).remove(); //remove img element
+      //reset
+      $(obj).remove();
+      $maskData = null;      
     });
-    
-    //reset
-    $canvasObj = null;
-    $maskObj  = null;
-    $maskData = null;
     
     return this;
   };
   
   function createCanvas(img, mask) {
+    img = $(img);
+    
     var id;
     
     //generate uniqe id
@@ -60,13 +68,13 @@
         'id': id,
         'class': img.attr("class"),
         'style': img.attr("style"),
-        'width': $maskObj.width,
-        'height': $maskObj.height
+        'width': mask.width,
+        'height': mask.height
        }).insertAfter(img);
   }
   
-  function get_maskData(ctx) {
-    ctx.drawImage($maskObj, 0, 0);                                            //draw image mask
+  function get_maskData(ctx, mask) {
+    ctx.drawImage(mask, 0, 0);                                                //draw image mask
     $maskData = ctx.getImageData(0, 0, $canvasObj.width, $canvasObj.height); //save mask data
     ctx.clearRect(0, 0, $canvasObj.width, $canvasObj.height);               //clear
   }
@@ -74,8 +82,8 @@
   function drawImg(ctx, img) {
     //calculate ratio for scaling
     var ratio = 1;
-    if(img.width>$canvasObj.width)    ratio = $canvasObj.width/img.width;
-    if(img.height>$canvasObj.height)  ratio=$canvasObj.height/img.height;
+    if($canvasObj.width>$canvasObj.height)    ratio = $canvasObj.width/img.width;
+    else  ratio = $canvasObj.height/img.height;
     
     ctx.drawImage(img, 0,0, img.width, img.height, 0,0, img.width*ratio, img.height*ratio); //draw image based on ratio for resizing
   }
