@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>imageMask by AlmogBaku</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/jquery.imageMask.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(".mySelector").imageMask("images/mask.png");
+      });
+    </script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">imageMask</h1>
+        <p class="header">jquery imageMask</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/AlmogBaku/imageMask/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/AlmogBaku/imageMask/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/AlmogBaku/imageMask">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/AlmogBaku">AlmogBaku</a></p>
+
+
+      </header>
+      <section>
+        <h1>jQuery imageMask</h1>
+
+<p>This jQuery plugin will allow you to add simple image-mask to your images.</p>
+
+<h2>Installation</h2>
+
+<p>Include the plugin <strong><em>after</em></strong> the jQuery:</p>
+
+<pre><code>    &lt;script type="text/javascript" src="jquery.imageMask.min.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<h2>Usage</h2>
+
+<p>Using imageMask is simple!</p>
+
+<ol>
+<li>Create image element:
+
+<pre><code>&lt;img src="image.jpg" class="mySelector" /&gt;
+</code></pre>
+</li>
+<li>Create mask image(black will keep stay, and the transparent will cutted of)
+<img src="images/mask.png" alt="mask" title="Mask"><br></li>
+<li>Add imageMask query to the ready event. use function <code>.imageMask(path_to_mask)</code>
+
+<pre><code>$(document).ready(function() {
+  $(".mySelector").imageMask("mask.png");
+});
+</code></pre>
+</li>
+<li><p>DONE!</p></li>
+</ol><h2>Demo</h2>
+<img src="images/image.jpg" class="mySelector" />
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
