@@ -17,7 +17,7 @@
     if(!this.is("img"))  return false;
     
     //create mask object
-    var maskObj;
+    var maskObj=null;
     if(_mask.src) maskObj=_mask;
     else {
       maskObj = new Image();
@@ -27,9 +27,9 @@
     var obj=this;
     
     $(maskObj).load(function() {
+      $maskData   = null;
       obj.each(function() {
-        //reset
-        $maskData   = null;      
+        //reset      
         $canvasObj  = null;
         
         //Create canvas
