@@ -25,8 +25,13 @@
     }
     
     var obj=this;
+    
     $(maskObj).load(function() {
       obj.each(function() {
+        //reset
+        $maskData   = null;      
+        $canvasObj  = null;
+        
         //Create canvas
         $canvasObj = createCanvas(this, maskObj)[0];
         var ctx = $canvasObj.getContext("2d");
@@ -36,18 +41,14 @@
         //reRender image
         var img = new Image();
         img.src = $(this).attr('src');
-        drawImg(ctx, img);
-        
-        //Applying mask
-        applyMask(ctx);
-        
-        $canvasObj = null;
-        ctx=null;
+        $(img).load(function() {
+          drawImg(ctx, img);
+          //Applying mask
+          applyMask(ctx);
+          
+          $(obj).remove();
+        });
       });
-      
-      //reset
-      $(obj).remove();
-      $maskData = null;      
     });
     
     return this;
@@ -83,7 +84,7 @@
     //calculate ratio for scaling
     var ratio = 1;
     if(img.width>img.height)  ratio = $canvasObj.height/img.height;
-    else                                    ratio = $canvasObj.width/img.width;
+    else                      ratio = $canvasObj.width/img.width;
     
     ctx.drawImage(img, 0,0, img.width, img.height, 0,0, img.width*ratio, img.height*ratio); //draw image based on ratio for resizing
   }
