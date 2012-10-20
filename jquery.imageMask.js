@@ -82,8 +82,8 @@
   function drawImg(ctx, img) {
     //calculate ratio for scaling
     var ratio = 1;
-    if($canvasObj.width>$canvasObj.height)    ratio = $canvasObj.width/img.width;
-    else  ratio = $canvasObj.height/img.height;
+    if(img.width>img.height)  ratio = $canvasObj.height/img.height;
+    else                                    ratio = $canvasObj.width/img.width;
     
     ctx.drawImage(img, 0,0, img.width, img.height, 0,0, img.width*ratio, img.height*ratio); //draw image based on ratio for resizing
   }
