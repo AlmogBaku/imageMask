@@ -60,7 +60,7 @@
         'id': id,
         'class': img.attr("class"),
         'width': $maskObj.width,
-        'height': $maskObj.height,
+        'height': $maskObj.height
        }).insertAfter(img);
   }
   
@@ -71,7 +71,10 @@
   }
   
   function drawImg(ctx, img) {
-    var ratio=$canvasObj.width/img.width; //calculation ratio based on width
+    //calculate ratio for scaling
+    var ratio = 1;
+    if(img.width>$canvasObj.width)    ratio = $canvasObj.width/img.width;
+    if(img.height>$canvasObj.height)  ratio=$canvasObj.height/img.height;
     
     ctx.drawImage(img, 0,0, img.width, img.height, 0,0, img.width*ratio, img.height*ratio); //draw image based on ratio for resizing
   }
