@@ -18,7 +18,6 @@
         $(".mySelector2").imageMask("images/mask2.png");
         $(".changeBG").click(function() {
           var hue = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
-          console.log(hue);
           $('body').animate({backgroundColor: hue}, 1000);
         });
       });
