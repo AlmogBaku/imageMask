@@ -29,7 +29,8 @@
       var $maskData   = null;
       obj.each(function() {
         //reset      
-        var $canvasObj  = null;
+        var $image = $(this),
+            $canvasObj  = null;
         
         //Create canvas
         $canvasObj = createCanvas(this, maskObj)[0];
@@ -45,7 +46,7 @@
           //Applying mask
           applyMask($canvasObj, ctx, $maskData);
           
-          $(obj).remove();
+          $image.remove();
         });
       });
     });
