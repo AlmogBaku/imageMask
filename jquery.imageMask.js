@@ -23,6 +23,7 @@
     }
     
     var obj=this;
+    obj.css("visibility", "hidden");
     
     $(maskObj).load(function() {
       var $maskData   = null;
@@ -69,7 +70,7 @@
         'style': img.attr("style"),
         'width': mask.width,
         'height': mask.height
-       }).insertAfter(img);
+       }).css("visibility", "").insertAfter(img);
   }
   
   function get_maskData(canvasObj, ctx, mask) {
