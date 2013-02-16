@@ -23,12 +23,14 @@
     }
     
     var obj=this;
+    obj.css("visibility", "hidden");
     
     $(maskObj).load(function() {
       var $maskData   = null;
       obj.each(function() {
         //reset      
-        var $canvasObj  = null;
+        var $image = $(this),
+            $canvasObj  = null;
         
         //Create canvas
         $canvasObj = createCanvas(this, maskObj)[0];
@@ -44,7 +46,7 @@
           //Applying mask
           applyMask($canvasObj, ctx, $maskData);
           
-          $(obj).remove();
+          $image.remove();
         });
       });
     });
@@ -69,7 +71,7 @@
         'style': img.attr("style"),
         'width': mask.width,
         'height': mask.height
-       }).insertAfter(img);
+       }).css("visibility", "").insertAfter(img);
   }
   
   function get_maskData(canvasObj, ctx, mask) {
