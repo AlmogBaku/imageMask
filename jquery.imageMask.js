@@ -3,7 +3,7 @@
  * @author Almog Baku - almog.baku@gmail.com
  * @see https://github.com/AlmogBaku/imageMask
  * 
- * @version 0.1b
+ * @version 0.1.4
  * @license MIT License
  */
 

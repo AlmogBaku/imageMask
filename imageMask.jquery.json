@@ -1,0 +1,32 @@
+{
+    "name": "imageMask",
+    "title": "jQuery imageMask",
+    "description": "This jQuery plugin will allow you to add simple image-mask to your images.",
+    "keywords": [
+        "image",
+        "mask",
+        "image-mask",
+        "canvas",
+        "custom"
+    ],
+    "version": "0.1.4",
+    "author": {
+        "name": "Almog Baku",
+        "email":"almog.baku@gmail.com",
+        "url":  "http://www.almogbaku.com"
+    },
+    "licenses": [
+        {
+            "type": "MIT License",
+            "url": "http://opensource.org/licenses/MIT"
+        }
+    ],
+    "homepage":"http://almogbaku.github.com/imageMask/",
+    "bugs": "https://github.com/AlmogBaku/imageMask/issues",
+    "demo":"http://almogbaku.github.com/imageMask/",
+    "docs": "http://almogbaku.github.com/imageMask/",
+    "download": "https://github.com/AlmogBaku/imageMask/zipball/master",
+    "dependencies": {
+        "jquery": ">=1.8"
+    }
+}
