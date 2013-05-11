@@ -15,8 +15,10 @@ Using imageMask is simple!
 1. Create image element
 
         <img src="image.jpg" class="mySelector" />
+
 1. Create mask image(black will keep stay, and the transparent will cutted of) <br />
-   ![mask](/AlmogBaku/imageMask/raw/master/demo/mask.png "Mask")
+   ![mask](/demo/mask.png "Mask")
+
 1. Add imageMask query to the ready event. use function `.imageMask(path_to_mask)`
 
         $( document ).ready( function() {
@@ -44,6 +46,6 @@ Lincense
 This project is released over 
 
 
-Athuors
+Authors
 -------
 [AlmogBaku](https://github.com/AlmogBaku/ "AlmogBaku") - Almog Baku - [http://www.almogbaku.com](http://www.almogbaku.com "AlmogBaku")
