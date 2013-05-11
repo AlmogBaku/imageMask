@@ -3,7 +3,7 @@
  * @author Almog Baku - almog.baku@gmail.com
  * @see https://github.com/AlmogBaku/imageMask
  *
- * @version 0.1.5
+ * @version 0.1.6
  * @license MIT License
  */
 
@@ -63,7 +63,7 @@
 
 					//callback
 					if ( $.isFunction( _callback ) ) {
-						_callback();
+						_callback( $canvasObj );
 					}
 				} );
 			} );

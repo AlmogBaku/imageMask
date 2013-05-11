@@ -7,8 +7,8 @@
     <script type="text/javascript" src="../jquery.imageMask.js"></script>
     <script type="text/javascript">
         $( document ).ready( function() {
-            $( ".mySelector" ).imageMask( "mask.png", function() {
-                console.log( 'test' );
+            $( ".mySelector" ).imageMask( "mask.png", function( $canvas ) {
+                console.log( 'test', $canvas );
             } );
         } );
     </script>

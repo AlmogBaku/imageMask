@@ -28,8 +28,8 @@ Using imageMask is simple!
 1. You can add some callback handler
 
         $( document ).ready( function() {
-            $( ".mySelector" ).imageMask( "mask.png", function() {
-                console.log( 'Do something here!' );
+            $( ".mySelector" ).imageMask( "mask.png", function( $canvas ) {
+                console.log( 'Do something here!', $canvas );
             } );
         } );
 
