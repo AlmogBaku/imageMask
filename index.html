@@ -63,16 +63,17 @@
                 <p>Create image element</p>
 <pre><code>&lt;img src="image.jpg" class="mySelector" /&gt;
 </code></pre>
-                <ol>
-                    <li>Create mask image(black will keep stay, and the transparent will cutted of) <br />
-                        <img alt="mask" src="images/mask.png" title="Mask" /></li>
-                    <li>
-                        <p>Add imageMask query to the ready event. use function <code>.imageMask(path_to_mask)</code></p>
-                        <p>$( document ).ready( function() {
-                            $( ".mySelector" ).imageMask( "mask.png" );
-                            } );</p>
-                    </li>
-                </ol>
+            </li>
+            <li>
+                <p>Create mask image(black will keep stay, and the transparent will cutted of) <br />
+                    <img alt="mask" src="images/mask.png" title="Mask" /></p>
+            </li>
+            <li>
+                <p>Add imageMask query to the ready event. use function <code>.imageMask(path_to_mask)</code></p>
+<pre><code>$( document ).ready( function() {
+    $( ".mySelector" ).imageMask( "mask.png" );
+    } );
+</code></pre>
             </li>
             <li>
                 <p>You can add some callback handler</p>
@@ -87,11 +88,7 @@
                 <p>DONE!</p>
             </li>
         </ol>
-
-            </li>
-            <li><p>DONE!</p></li>
-        </ol>
-        <h2>Demo</h2>
+        <h2 id="demo">Demo</h2>
         <img src="images/image.jpg" class="mySelector"/>
     </section>
     <footer>
