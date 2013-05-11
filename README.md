@@ -19,9 +19,18 @@ Using imageMask is simple!
    ![mask](/AlmogBaku/imageMask/raw/master/demo/mask.png "Mask")
 1. Add imageMask query to the ready event. use function `.imageMask(path_to_mask)`
 
-        $(document).ready(function() {
-          $(".mySelector").imageMask("mask.png");
-        });
+        $( document ).ready( function() {
+            $( ".mySelector" ).imageMask( "mask.png" );
+        } );
+
+1. You can add some callback handler
+
+        $( document ).ready( function() {
+            $( ".mySelector" ).imageMask( "mask.png", function() {
+                console.log( 'Do something here!' );
+            } );
+        } );
+
 1. DONE!
 
 
