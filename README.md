@@ -41,9 +41,9 @@ Demo
 You can see a [demo over this link](http://almogbaku.github.com/imageMask/ "Demo").
 
 
-Lincense
+License
 --------
-This project is released over 
+This project is released over [MIT license](http://opensource.org/licenses/MIT "MIT License")
 
 
 Authors
