@@ -78,8 +78,8 @@
             <li>
                 <p>You can add some callback handler</p>
 <pre><code>$( document ).ready( function() {
-    $( ".mySelector" ).imageMask( "mask.png", function() {
-        console.log( 'Do something here!' );
+    $( ".mySelector" ).imageMask( "mask.png", function( $canvas ) {
+        console.log( 'Do something here!', $canvas );
     } );
 } );
 </code></pre>
