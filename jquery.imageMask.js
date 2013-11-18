@@ -5,7 +5,7 @@
  *
  * @version 0.1.6
  * @license MIT License
- */   
+ */
 
 (function( $ ) {
 	var $_count_id = 0;
@@ -30,6 +30,7 @@
 			maskObj = _mask;
 		} else {
 			maskObj = new Image();
+			maskObj.crossOrigin = "Anonymous";
 			maskObj.src = _mask;
 		}
 
@@ -52,6 +53,7 @@
 
 				//reRender image
 				var img = new Image();
+				img.crossOrigin = "Anonymous";
 				img.src = $( this ).attr( 'src' );
 				$( img ).load( function() {
 					drawImg( $canvasObj, ctx, img );
