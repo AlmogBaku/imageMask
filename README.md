@@ -11,7 +11,7 @@ Include the plugin **_after_** the jQuery:
 Note
 ----
 The origional image sizing option is under progress. Currently only fitting to the mask image works.
-
+SVG support is in the works.
 
 Usage
 -----
