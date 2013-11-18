@@ -8,6 +8,11 @@ Include the plugin **_after_** the jQuery:
 
         <script type="text/javascript" src="jquery.imageMask.min.js"></script>
 
+Note
+----
+The origional image sizing option is under progress. Currently only fitting to the mask image works.
+
+
 Usage
 -----
 Using imageMask is simple!
@@ -23,6 +28,12 @@ Using imageMask is simple!
 
         $( document ).ready( function() {
             $( ".mySelector" ).imageMask( "mask.png" );
+        } );
+        
+1. Choose if you want to match the size of the origional images or the mask image. Pass `null` in callback perameter to skip callback.
+
+        $( document ).ready( function() {
+            $( ".mySelector" ).imageMask( "mask.png", null );
         } );
 
 1. You can add some callback handler
