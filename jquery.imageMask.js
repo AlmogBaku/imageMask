@@ -10,7 +10,7 @@
 (function( $ ) {
 	var $_count_id = 0;
 
-	$.fn.imageMask = function( _mask, _callback ) {
+	$.fn.imageMask = function( _mask, _callback, _resize ) {
 		if ( _mask == undefined ) {
 			console.error( "imageMask: undefined mask" );
 			return false;
@@ -44,7 +44,7 @@
 				var $image = $( this ), $canvasObj = null;
 
 				//Create canvas
-				$canvasObj = createCanvas( this, maskObj )[0];
+				$canvasObj = createCanvas( this, maskObj, _resize )[0];
 				var ctx = $canvasObj.getContext( "2d" );
 
 				if ( $maskData == null ) {
@@ -74,7 +74,13 @@
 		return this;
 	};
 
-	function createCanvas ( img, mask ) {
+	function createCanvas ( img, mask, _resize ) {
+				var $imagewidth = mask.height;
+				var $imageheight = mask.width;
+	if(_resize == 1){
+			var $imagewidth = img.width + 'px';
+			var $imageheight = img.height + 'px';
+			}
 		img = $( img );
 
 		var id;
@@ -92,8 +98,8 @@
 			'id':     id,
 			'class':  img.attr( "class" ),
 			'style':  img.attr( "style" ),
-			'width':  mask.width,
-			'height': mask.height
+			'width':  $imagewidth,
+			'height': $imageheight
 		} ).css( "visibility", "" ).insertAfter( img );
 	}
 
