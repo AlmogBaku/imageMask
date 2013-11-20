@@ -44,6 +44,16 @@ Using imageMask is simple!
             } );
         } );
 
+1. You can add the following CSS code in your CSS file for better quality rendering
+
+        canvas, img {
+            image-rendering: optimizeQuality;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: optimize-contrast;
+                    -ms-interpolation-mode: bicubic;
+        }
+
 1. DONE!
 
 
