@@ -47,15 +47,13 @@
 				$canvasObj = createCanvas( this, maskObj, _resize )[0];
 				var ctx = $canvasObj.getContext( "2d" );
 
-				if ( $maskData == null ) {
-					$maskData = get_maskData( $canvasObj, ctx, maskObj );
-				} //get mask data if not exist
 
 				//reRender image
 				var img = new Image();
 				img.crossOrigin = "Anonymous";
 				img.src = $( this ).attr( 'src' );
 				$( img ).load( function() {
+					$maskData = get_maskData( $canvasObj, ctx, maskObj );
 					drawImg( $canvasObj, ctx, img );
 					//Applying mask
 					applyMask( $canvasObj, ctx, $maskData );
@@ -104,7 +102,7 @@
 	}
 
 	function get_maskData ( canvasObj, ctx, mask ) {
-		ctx.drawImage( mask, 0, 0 );                                                //draw image mask
+		ctx.drawImage( mask, 0, 0, canvasObj.width, canvasObj.width );                                                //draw image mask
 		var maskData = ctx.getImageData( 0, 0, canvasObj.width, canvasObj.height ); //save mask data
 		ctx.clearRect( 0, 0, canvasObj.width, canvasObj.height );                   //clear
 
