@@ -6,7 +6,11 @@
  * @version 0.1.6
  * @license MIT License
  */
-
+function isCanvasSupported(){
+  var elem = document.createElement('canvas');
+  return !!(elem.getContext && elem.getContext('2d'));
+}
+if (isCanvasSupported()){
 (function( $ ) {
 	var $_count_id = 0;
 
@@ -129,3 +133,4 @@
 		ctx.putImageData( imgData, 0, 0 ); //apply the changes
 	}
 })( jQuery );
+}
