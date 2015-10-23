@@ -106,7 +106,7 @@ if (isCanvasSupported()){
 	}
 
 	function get_maskData ( canvasObj, ctx, mask ) {
-		ctx.drawImage( mask, 0, 0, canvasObj.width, canvasObj.width );                                                //draw image mask
+		ctx.drawImage( mask, 0, 0, canvasObj.width, canvasObj.height );                                                //draw image mask
 		var maskData = ctx.getImageData( 0, 0, canvasObj.width, canvasObj.height ); //save mask data
 		ctx.clearRect( 0, 0, canvasObj.width, canvasObj.height );                   //clear
 
