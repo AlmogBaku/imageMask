@@ -77,8 +77,8 @@ if (isCanvasSupported()){
 	};
 
 	function createCanvas ( img, mask, _resize ) {
-				var $imagewidth = mask.height;
-				var $imageheight = mask.width;
+				var $imagewidth = mask.width;
+				var $imageheight = mask.height;
 	if(_resize == 1){
 			var $imagewidth = img.width + 'px';
 			var $imageheight = img.height + 'px';
