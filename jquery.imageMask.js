@@ -77,8 +77,8 @@ if (isCanvasSupported()){
 	};
 
 	function createCanvas ( img, mask, _resize ) {
-				var $imagewidth = mask.height;
-				var $imageheight = mask.width;
+				var $imagewidth = mask.width;
+				var $imageheight = mask.height;
 	if(_resize == 1){
 			var $imagewidth = img.width + 'px';
 			var $imageheight = img.height + 'px';
@@ -106,7 +106,7 @@ if (isCanvasSupported()){
 	}
 
 	function get_maskData ( canvasObj, ctx, mask ) {
-		ctx.drawImage( mask, 0, 0, canvasObj.width, canvasObj.width );                                                //draw image mask
+		ctx.drawImage( mask, 0, 0, canvasObj.width, canvasObj.height );                                                //draw image mask
 		var maskData = ctx.getImageData( 0, 0, canvasObj.width, canvasObj.height ); //save mask data
 		ctx.clearRect( 0, 0, canvasObj.width, canvasObj.height );                   //clear
 
